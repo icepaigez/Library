@@ -1,6 +1,3 @@
-let newBook = document.querySelector('.new__book').querySelector('button');
-newBook.addEventListener("click", () => console.log('need to add a new book to the library'))
-
 let library = [
 	{
 		title: "Everything Good Will Come",
@@ -28,21 +25,86 @@ let library = [
 	}
 ]
 
-
-library.forEach(obj => {
-	const { title, author, pages, genre, cover_image, read } = obj;
-
+function addBook(title, author, pages, genre, cover_image, read) {
 	var card = document.createElement('div');
 	var bookCover = document.createElement('div');
 	var coverImage = document.createElement('img');
 	var bookDescription = document.createElement('div');
 	var bookList = document.getElementById('book__list');
+	var br = document.createElement('br');
+	var br2 = document.createElement('br');
+	var br3 = document.createElement('br');
+	var br4 = document.createElement('br');
 
+	var bookTitle = document.createElement('p');
+	bookTitle.className = "title"
+	var bookTitleNode = document.createTextNode(title);
+	bookTitle.appendChild(bookTitleNode)
+
+	var authorSpan = document.createElement('span');
+	var authorNode = document.createTextNode(author);
+	authorSpan.className = "author"
+	authorSpan.appendChild(authorNode)
+
+	var pageSpan = document.createElement('span');
+	var pageNode = document.createTextNode(pages);
+	pageSpan.className = "pages"
+	pageSpan.appendChild(pageNode)
+
+	var genreSpan = document.createElement('span');
+	var genreNode = document.createTextNode(genre);
+	genreSpan.className = "genre"
+	genreSpan.appendChild(genreNode)
+
+	var readStatus = document.createElement('span');
+	readStatus.className = "read"
+	var readNode;
+	if (read) {
+		readNode = document.createTextNode('Has been read')
+	} else {
+		readNode = document.createTextNode('Wish to read')
+	}
+	readStatus.appendChild(readNode)
+
+	bookDescription.className = "description"
+	bookDescription.appendChild(bookTitle)
+	bookTitle.appendChild(br)
+	bookTitle.appendChild(authorSpan)
+	bookTitle.appendChild(br2)
+	bookTitle.appendChild(pageSpan)
+	bookTitle.appendChild(br3)
+	bookTitle.appendChild(genreSpan)
+	bookTitle.appendChild(br4)
+	bookTitle.appendChild(readStatus)
+
+	
 	coverImage.src = cover_image
 	bookCover.appendChild(coverImage)
 	bookCover.className = "cover"
 
 	card.className = "card"
 	card.appendChild(bookCover)
+	card.appendChild(bookDescription)
 	bookList.appendChild(card)
+}
+
+let newBook = document.querySelector('.new__book').querySelector('button');
+newBook.addEventListener("click", () => {
+	let title = prompt("Please Enter Book Title:")
+	let author = prompt("Please Enter Book Author Name:")
+	let pages = prompt("Please enter the number of pages e.g. 5 pages")
+	let genre = prompt("Please Enter Book Genre e.g. fiction, romance, etc")
+	let read = Boolean(prompt("Have you read this book?, Enter true or false"))
+	let image = prompt("Please enter a url for the book cover image")
+	if (title !== "" && author !== "" && pages !== "" && genre !== "" && read !== "" && image !== "") {
+		addBook(title, author, pages, genre, image, read)
+	} else {
+		alert("You did not enter any data for one of the questions. Please start over")
+	}
 })
+
+library.forEach(obj => {
+	const { title, author, pages, genre, cover_image, read } = obj;
+	addBook(title, author, pages, genre, cover_image, read)
+})
+
