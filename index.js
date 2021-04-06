@@ -96,14 +96,12 @@ newBook.addEventListener("click", () => {
 	let genre = prompt("Please Enter Book Genre e.g. fiction, romance, etc")
 	let read = Boolean(prompt("Have you read this book?, Enter true or false"))
 	let image = prompt("Please enter a url for the book cover image")
-	if (title !== "" && author !== "" && pages !== "" && genre !== "" && read !== "" && image !== "") {
+	if (title !== null && author !== null && pages !== null && genre !== null && read !== null && image !== null) {
 		addBook(title, author, pages, genre, image, read)
 	} else {
 		alert("You did not enter any data for one of the questions. Please start over")
 	}
 })
-
-let cardList = document.querySelector('#book__list').querySelectorAll('.card')
 
 
 library.forEach(obj => {
