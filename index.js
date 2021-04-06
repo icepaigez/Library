@@ -103,6 +103,9 @@ newBook.addEventListener("click", () => {
 	}
 })
 
+let cardList = document.querySelector('#book__list').querySelectorAll('.card')
+
+
 library.forEach(obj => {
 	const { title, author, pages, genre, cover_image, read } = obj;
 	addBook(title, author, pages, genre, cover_image, read)
