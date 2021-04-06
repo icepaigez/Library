@@ -7,11 +7,31 @@ body {
 	margin: 0;
 }
 
-header {
-	border: 1px solid red;
-}
-
 h1 {
 	text-align: center;
 	font-family: 'New Tegomin', serif;
+}
+
+#books {
+	height: 100%;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+.new__book {
+	padding: 5px;
+	text-align: right;
+}
+
+.new__book > button {
+	font-size: .875rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #4b555e;
+    padding: .4rem 0.5rem;
+    border-radius: .25rem;
+    border: .025rem solid #c7d1d9;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 5.75rem;
 }
