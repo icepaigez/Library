@@ -36,7 +36,7 @@ h1 {
     min-width: 5.75rem;
 }
 
-.book__list {
+#book__list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -48,7 +48,7 @@ h1 {
 	padding: 1em;
 	margin: 0.5em;
 	padding-bottom: .1em;
-	width: 160px;
+	width: 200px;
   	height: auto;
 }
 
