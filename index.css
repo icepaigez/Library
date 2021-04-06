@@ -35,3 +35,24 @@ h1 {
     vertical-align: middle;
     min-width: 5.75rem;
 }
+
+.book__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card {
+	border-radius: .25rem;
+    border: .025rem solid #c7d1d9;
+	padding: 1em;
+	margin: 0.5em;
+	padding-bottom: .1em;
+	width: 160px;
+  	height: auto;
+}
+
+.cover > img {
+	width: 100%;
+	height: 100%;
+}
